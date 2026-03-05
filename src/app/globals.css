@@ -1,26 +1,163 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
+
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", "Liberation Sans", sans-serif;
+
+  --bg: 248 55% 8%;
+  --surface: 252 45% 12%;
+  --surface-2: 250 40% 16%;
+  --border: 255 22% 28%;
+
+  --text: 0 0% 98%;
+  --muted: 252 10% 75%;
+
+  --primary: 278 92% 60%;
+  --primary-2: 192 96% 55%;
+  --accent: 48 98% 60%;
+  --danger: 0 90% 62%;
+  --success: 145 78% 50%;
+  --info: 205 95% 60%;
+  --warning: 30 98% 58%;
+
+  --ring: 192 96% 55%;
+
+  --grad-a: 278 92% 60%;
+  --grad-b: 192 96% 55%;
+  --grad-c: 48 98% 60%;
+
+  --shadow: 278 92% 60% / 0.25;
+
+  --radius: 16px;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  --bg: 252 100% 98%;
+  --surface: 0 0% 100%;
+  --surface-2: 252 60% 96%;
+  --border: 252 18% 84%;
+
+  --text: 248 35% 12%;
+  --muted: 248 12% 40%;
+
+  --primary: 278 90% 52%;
+  --primary-2: 192 94% 45%;
+  --accent: 48 98% 52%;
+  --danger: 0 84% 52%;
+  --success: 145 70% 40%;
+  --info: 205 90% 45%;
+  --warning: 30 92% 48%;
+
+  --ring: 278 90% 52%;
+  --shadow: 278 90% 52% / 0.18;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: hsl(var(--bg));
+  --color-surface: hsl(var(--surface));
+  --color-surface-2: hsl(var(--surface-2));
+  --color-border: hsl(var(--border));
+
+  --color-text: hsl(var(--text));
+  --color-muted: hsl(var(--muted));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-2: hsl(var(--primary-2));
+  --color-accent: hsl(var(--accent));
+
+  --color-danger: hsl(var(--danger));
+  --color-success: hsl(var(--success));
+  --color-info: hsl(var(--info));
+  --color-warning: hsl(var(--warning));
+
+  --radius-lg: var(--radius);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    @apply bg-background text-text font-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  :focus-visible {
+    outline: 3px solid hsl(var(--ring));
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: hsl(var(--accent) / 0.35);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .bg-focara {
+    background:
+      radial-gradient(
+        900px 600px at 12% 8%,
+        hsl(var(--grad-a) / 0.35),
+        transparent 60%
+      ),
+      radial-gradient(
+        700px 520px at 88% 18%,
+        hsl(var(--grad-b) / 0.28),
+        transparent 62%
+      ),
+      radial-gradient(
+        900px 700px at 50% 92%,
+        hsl(var(--grad-c) / 0.2),
+        transparent 58%
+      ),
+      linear-gradient(180deg, hsl(var(--bg)), hsl(var(--bg)));
+  }
+
+  .surface {
+    @apply bg-surface border border-border rounded-lg;
+    box-shadow:
+      0 10px 30px hsl(var(--shadow)),
+      0 1px 0 hsl(var(--border) / 0.7) inset;
+  }
+
+  .surface-2 {
+    @apply bg-surface-2 border border-border rounded-md;
+  }
+
+  .muted {
+    color: hsl(var(--muted));
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border font-semibold;
+    background: hsl(var(--surface-2));
+  }
+
+  .badge--primary {
+    border-color: hsl(var(--primary) / 0.55);
+    background: hsl(var(--primary) / 0.14);
+  }
+
+  .badge--info {
+    border-color: hsl(var(--info) / 0.55);
+    background: hsl(var(--info) / 0.14);
+  }
+
+  .badge--success {
+    border-color: hsl(var(--success) / 0.55);
+    background: hsl(var(--success) / 0.14);
+  }
+
+  .badge--warning {
+    border-color: hsl(var(--warning) / 0.55);
+    background: hsl(var(--warning) / 0.14);
+  }
+
+  .badge--danger {
+    border-color: hsl(var(--danger) / 0.55);
+    background: hsl(var(--danger) / 0.14);
+  }
 }
