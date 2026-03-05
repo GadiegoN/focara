@@ -99,19 +99,19 @@
   .bg-focara {
     background:
       radial-gradient(
-        900px 600px at 12% 8%,
-        hsl(var(--grad-a) / 0.35),
-        transparent 60%
-      ),
-      radial-gradient(
-        700px 520px at 88% 18%,
-        hsl(var(--grad-b) / 0.28),
+        720px 520px at 12% 8%,
+        hsl(var(--grad-a) / 0.22),
         transparent 62%
       ),
       radial-gradient(
-        900px 700px at 50% 92%,
-        hsl(var(--grad-c) / 0.2),
-        transparent 58%
+        620px 480px at 88% 18%,
+        hsl(var(--grad-b) / 0.18),
+        transparent 64%
+      ),
+      radial-gradient(
+        760px 620px at 50% 92%,
+        hsl(var(--grad-c) / 0.12),
+        transparent 60%
       ),
       linear-gradient(180deg, hsl(var(--bg)), hsl(var(--bg)));
   }
@@ -132,32 +132,43 @@
   }
 
   .badge {
-    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border font-semibold;
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium border;
+    border-color: hsl(var(--border));
     background: hsl(var(--surface-2));
+    color: hsl(var(--text));
+  }
+
+  .badge b {
+    font-weight: 600;
   }
 
   .badge--primary {
-    border-color: hsl(var(--primary) / 0.55);
+    border-color: hsl(var(--primary) / 0.5);
     background: hsl(var(--primary) / 0.14);
+    color: hsl(var(--primary));
   }
 
   .badge--info {
-    border-color: hsl(var(--info) / 0.55);
+    border-color: hsl(var(--info) / 0.5);
     background: hsl(var(--info) / 0.14);
+    color: hsl(var(--info));
   }
 
   .badge--success {
-    border-color: hsl(var(--success) / 0.55);
+    border-color: hsl(var(--success) / 0.5);
     background: hsl(var(--success) / 0.14);
+    color: hsl(var(--success));
   }
 
   .badge--warning {
-    border-color: hsl(var(--warning) / 0.55);
+    border-color: hsl(var(--warning) / 0.5);
     background: hsl(var(--warning) / 0.14);
+    color: hsl(var(--warning));
   }
 
   .badge--danger {
-    border-color: hsl(var(--danger) / 0.55);
+    border-color: hsl(var(--danger) / 0.5);
     background: hsl(var(--danger) / 0.14);
+    color: hsl(var(--danger));
   }
 }

@@ -76,7 +76,7 @@ export function FocoForm() {
         <Textarea
           value={text}
           onChange={(e) => setText(e.currentTarget.value)}
-          placeholder="Ex.: Quero um sistema para registrar consumo de fraldas e prever compra bimestral."
+          placeholder="Ex.: Preciso de um prompt para gerar ideias de posts para redes sociais sobre sustentabilidade."
         />
       </label>
 
