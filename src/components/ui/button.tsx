@@ -20,7 +20,7 @@ export function Button({
     <button
       type={type}
       className={cn(
-        "focus-ring inline-flex items-center justify-center gap-2 rounded-lg border font-semibold transition",
+        "focus-ring inline-flex select-none items-center justify-center gap-2 rounded-lg border font-semibold transition",
         "disabled:pointer-events-none disabled:opacity-60",
         size === "sm" && "h-9 px-3 text-sm",
         size === "md" && "h-11 px-4 text-[15px]",

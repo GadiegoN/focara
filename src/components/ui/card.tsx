@@ -14,7 +14,10 @@ export function CardHeader({ className, ...props }: CardProps) {
 export function CardTitle({ className, ...props }: CardProps) {
   return (
     <div
-      className={cn("text-xl font-extrabold tracking-tight", className)}
+      className={cn(
+        "text-xl font-extrabold tracking-tight text-text",
+        className,
+      )}
       {...props}
     />
   );
