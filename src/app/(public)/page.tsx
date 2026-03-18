@@ -2,20 +2,22 @@ import { Card, CardContent } from "@/components/ui/card";
 import { FocoForm } from "./_components/foco-form";
 import { ThemeToggle } from "./_components/theme-toggle";
 
+const focoBadges = ["Fato", "Objetivo", "Condições", "Ok"];
+
 export default function HomePage() {
   return (
     <main className="min-h-dvh bg-focara">
-      <header className="border-b border-border bg-background/60 backdrop-blur">
-        <div className="mx-auto flex w-full max-w-3xl items-center justify-between px-4 py-4">
+      <header className="border-b border-border bg-background/70 backdrop-blur">
+        <div className="mx-auto flex w-full max-w-4xl items-center justify-between px-4 py-4">
           <div className="flex items-center gap-3">
-            <div className="grid h-9 w-9 place-items-center rounded-md border border-border bg-background">
-              <span className="text-sm font-extrabold">F</span>
+            <div className="grid h-10 w-10 place-items-center rounded-xl border border-border bg-background shadow-[0_10px_30px_hsl(var(--shadow))]">
+              <span className="text-sm font-extrabold">FO</span>
             </div>
 
             <div className="leading-tight">
-              <div className="text-sm font-semibold">FOCAra</div>
+              <div className="text-base font-semibold">FOCAra</div>
               <div className="text-xs text-muted-foreground">
-                Método FOCO para instruções claras
+                Método FOCO para prompts
               </div>
             </div>
           </div>
@@ -24,61 +26,31 @@ export default function HomePage() {
         </div>
       </header>
 
-      <section className="px-4 py-12">
-        <div className="mx-auto w-full max-w-3xl">
-          <div className="mb-8 space-y-2">
-            <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">
-              Transforme uma ideia em um prompt executável
+      <section className="px-4 pb-16 pt-10 md:pb-20 md:pt-14">
+        <div className="mx-auto w-full max-w-4xl space-y-6">
+          <div className="space-y-3 text-center">
+            <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
+              Transforme uma ideia em prompt.
             </h1>
-
-            <p className="max-w-2xl text-sm text-muted-foreground md:text-base">
-              Escreva o que você quer. Eu organizo em{" "}
-              <span className="font-medium text-foreground">
-                Fato, Objetivo, Condições e Ok
-              </span>
-              .
+            <p className="mx-auto max-w-2xl text-sm leading-6 text-muted-foreground md:text-base">
+              Escreva sua solicitação e o FOCAra organiza em Fato, Objetivo,
+              Condições e Ok.
             </p>
           </div>
 
-          <Card className="border-border/50 shadow-none">
-            <CardContent className="p-6 md:p-7">
-              <div className="mb-4 space-y-1">
-                <div className="text-sm font-medium text-foreground">
-                  O que você precisa comunicar?
-                </div>
-
-                <div className="text-sm text-muted-foreground">
-                  Descreva em linguagem natural. Você pode colar contexto,
-                  regras e exemplos.
-                </div>
-              </div>
-
+          <Card className="border-border/60 shadow-none">
+            <CardContent className="p-5 md:p-7">
               <FocoForm />
-
-              <div className="mt-5 flex flex-wrap gap-x-3 gap-y-2">
-                <span className="badge">
-                  <b>F</b> Fato
-                </span>
-
-                <span className="badge">
-                  <b>O</b> Objetivo
-                </span>
-
-                <span className="badge">
-                  <b>C</b> Condições
-                </span>
-
-                <span className="badge">
-                  <b>O</b> Ok
-                </span>
-              </div>
             </CardContent>
           </Card>
 
-          <footer className="mt-8 text-xs text-muted-foreground">
-            Dica: inclua restrições, público-alvo e formato desejado para sair
-            melhor.
-          </footer>
+          <div className="flex flex-wrap justify-center gap-2">
+            {focoBadges.map((item) => (
+              <span key={item} className="badge">
+                {item}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
     </main>

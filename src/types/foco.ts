@@ -7,6 +7,10 @@ export type Foco = {
 
 export type GenerateFocoInput = {
   idea: string;
+  audience?: string;
+  outputFormat?: string;
+  tone?: string;
+  constraints?: string;
 };
 
 export type GenerateFocoOutput = {

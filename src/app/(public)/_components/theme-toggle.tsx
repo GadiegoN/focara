@@ -36,7 +36,7 @@ export function ThemeToggle() {
       onClick={toggle}
       aria-label="Alternar tema"
     >
-      {theme === "dark" ? "Tema: Dark" : "Tema: Light"}
+      {theme === "dark" ? "Modo escuro" : "Modo claro"}
     </Button>
   );
 }

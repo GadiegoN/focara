@@ -5,48 +5,51 @@ type Props = {
   foco: Foco;
 };
 
+const sections = [
+  {
+    key: "fato",
+    title: "F — Fato",
+    description: "Contexto",
+  },
+  {
+    key: "objetivo",
+    title: "O — Objetivo",
+    description: "Entrega",
+  },
+  {
+    key: "condicoes",
+    title: "C — Condições",
+    description: "Regras e formato",
+  },
+  {
+    key: "ok",
+    title: "O — Ok",
+    description: "Validação",
+  },
+] as const satisfies Array<{
+  key: keyof Foco;
+  title: string;
+  description: string;
+}>;
+
 export function FocoResult({ foco }: Props) {
   return (
     <div className="grid gap-4 md:grid-cols-2">
-      <Card>
-        <CardHeader>
-          <CardTitle>F — Fato</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p className="text-sm text-text whitespace-pre-wrap">{foco.fato}</p>
-        </CardContent>
-      </Card>
-
-      <Card>
-        <CardHeader>
-          <CardTitle>O — Objetivo</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p className="text-sm text-text whitespace-pre-wrap">
-            {foco.objetivo}
-          </p>
-        </CardContent>
-      </Card>
-
-      <Card>
-        <CardHeader>
-          <CardTitle>C — Condições</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p className="text-sm text-text whitespace-pre-wrap">
-            {foco.condicoes}
-          </p>
-        </CardContent>
-      </Card>
-
-      <Card>
-        <CardHeader>
-          <CardTitle>O — Ok</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p className="text-sm text-text whitespace-pre-wrap">{foco.ok}</p>
-        </CardContent>
-      </Card>
+      {sections.map((section) => (
+        <Card key={section.key} className="border-border/60 shadow-none">
+          <CardHeader>
+            <CardTitle className="text-base">{section.title}</CardTitle>
+            <p className="text-sm text-muted-foreground">
+              {section.description}
+            </p>
+          </CardHeader>
+          <CardContent>
+            <p className="whitespace-pre-wrap text-sm leading-6 text-text">
+              {foco[section.key]}
+            </p>
+          </CardContent>
+        </Card>
+      ))}
     </div>
   );
 }

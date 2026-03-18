@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: "FOCAra",
-    template: "%s • FOCAra",
+    template: "%s | FOCAra",
   },
   description:
     "Transforme texto livre em prompts estruturados com o método FOCO. Gere prompts claros, executáveis e organizados em Fato, Objetivo, Condições e Ok.",
@@ -74,17 +74,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html
       lang="pt-BR"
       className={`${fontSans.variable} ${fontMono.variable}`}
       suppressHydrationWarning
     >
-      <body className="bg-background text-text font-sans antialiased">
-        <div className="min-h-dvh flex flex-col">{children}</div>
+      <body className="bg-background font-sans text-text antialiased">
+        <div className="flex min-h-dvh flex-col">{children}</div>
       </body>
     </html>
   );
